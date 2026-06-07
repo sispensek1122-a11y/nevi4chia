@@ -6,115 +6,162 @@
 <title>Untuk Chia ❤️</title>
 
 <style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
 body{
-    margin:0;
-    padding:0;
-    font-family:'Segoe UI',sans-serif;
-    background:linear-gradient(135deg,#ffb6c1,#ffd6e7);
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
+font-family:'Segoe UI',sans-serif;
+background:linear-gradient(to bottom,#050816,#0c1630,#1b2b59);
+min-height:100vh;
+overflow-x:hidden;
+color:white;
+}
+
+.stars{
+position:fixed;
+width:100%;
+height:100%;
+z-index:-2;
+}
+
+.star{
+position:absolute;
+background:white;
+border-radius:50%;
+animation:twinkle 3s infinite;
+}
+
+@keyframes twinkle{
+50%{opacity:.2;}
+}
+
+.container{
+max-width:800px;
+margin:auto;
+padding:40px 20px;
+text-align:center;
 }
 
 .card{
-    background:white;
-    width:90%;
-    max-width:600px;
-    padding:35px;
-    border-radius:25px;
-    box-shadow:0 10px 30px rgba(0,0,0,.15);
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(10px);
+padding:30px;
+border-radius:25px;
+border:1px solid rgba(255,255,255,0.1);
 }
 
 h1{
-    color:#ff5c8d;
-}
-
-p{
-    line-height:1.8;
-    color:#444;
+margin-bottom:15px;
 }
 
 button{
-    padding:12px 25px;
-    border:none;
-    border-radius:12px;
-    background:#ff5c8d;
-    color:white;
-    cursor:pointer;
-    font-size:16px;
+padding:12px 24px;
+border:none;
+border-radius:12px;
+cursor:pointer;
+font-size:16px;
+background:#ff6ea8;
+color:white;
+margin-top:15px;
 }
 
 #surat{
-    display:none;
-    margin-top:25px;
+display:none;
+margin-top:30px;
+line-height:1.9;
+text-align:left;
+white-space:pre-wrap;
+}
+
+#counter{
+margin:20px 0;
+font-size:18px;
+}
+
+.gallery{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:15px;
+margin-top:30px;
+}
+
+.gallery img{
+width:220px;
+height:220px;
+object-fit:cover;
+border-radius:18px;
+}
+
+.heart{
+position:fixed;
+color:#ff8fc0;
+font-size:20px;
+animation:fall linear forwards;
+pointer-events:none;
+}
+
+@keyframes fall{
+to{
+transform:translateY(110vh);
+opacity:0;
+}
+}
+
+#akhir{
+display:none;
+margin-top:30px;
+}
+
+#pesanAkhir{
+margin-top:20px;
+font-size:22px;
+display:none;
 }
 </style>
 </head>
-
 <body>
+
+<div class="stars" id="stars"></div>
+
+<div class="container">
 
 <div class="card">
 
 <h1>untuk chia ❤️</h1>
 
-<p id="hari"></p>
+<p>
+ada sesuatu yang ingin gua kasih ke lo
+</p>
 
-<br>
+<div id="counter"></div>
 
 <button onclick="bukaSurat()">
-buka surat
+buka surat 💌
 </button>
 
-<div id="surat">
+<div id="surat"></div>
 
-<p>
-chia,
-</p>
+<div id="akhir">
 
-<p>
-dari semua hal yang pernah datang dan pergi di hidup gua,
-ada satu hal yang selalu bikin gua bersyukur setiap hari,
-dan itu adalah lo
-</p>
+<h3>
+apakah lo bahagia selama sama gua?
+</h3>
 
-<p>
-sejak 23 mei 2026,
-hari-hari yang biasa aja mendadak punya warna,
-malam yang sepi jadi terasa lebih hangat,
-dan senyum sederhana dari lo bisa bikin dunia terasa jauh lebih baik
-</p>
+<button onclick="jawab()">
+iya ❤️
+</button>
 
-<p>
-lo mungkin ga sadar,
-tapi ada banyak momen di mana nama lo muncul di kepala gua tanpa alasan,
-kayak lagu yang terus terngiang,
-kayak bintang yang selalu ada meski kadang tertutup awan
-</p>
+<div id="pesanAkhir">
+makasih ya chia ❤️
 
-<p>
-gua ga janji bakal jadi orang paling sempurna,
-tapi gua bakal selalu berusaha jadi tempat yang nyaman buat lo pulang,
-jadi orang yang denger cerita lo,
-dan jadi seseorang yang bangga karena bisa jalan di samping lo
-</p>
+gua sayang banget sama lo
+</div>
 
-<p>
-kalau suatu hari nanti lo ngerasa dunia terlalu berat,
-ingat aja bahwa ada satu orang yang selalu nganggep lo berharga,
-dan orang itu adalah gua
-</p>
-
-<p>
-terima kasih karena udah hadir,
-terima kasih karena udah bertahan,
-dan terima kasih karena udah jadi chia yang gua kenal hari ini
-</p>
-
-<p>
-❤️
-</p>
+</div>
 
 </div>
 
@@ -122,19 +169,141 @@ dan terima kasih karena udah jadi chia yang gua kenal hari ini
 
 <script>
 
+const text = `chia,
+
+dari semua hal yang pernah datang dan pergi di hidup gua,
+lo adalah salah satu alasan kenapa gua masih percaya kalau kebahagiaan bisa datang dalam bentuk seseorang.
+
+sejak 23 mei 2026,
+hari-hari yang tadinya biasa aja terasa lebih hidup.
+
+ada banyak hal yang mungkin ga pernah gua ucapin secara langsung,
+tapi gua selalu bersyukur karena semesta mempertemukan gua sama lo.
+
+lo ga harus jadi sempurna.
+
+cukup jadi chia yang selama ini gua kenal,
+itu udah lebih dari cukup.
+
+kalau suatu hari nanti dunia terasa terlalu berat,
+ingat aja kalau ada satu orang yang selalu seneng melihat lo tersenyum.
+
+dan orang itu adalah gua.
+
+terima kasih karena udah hadir.
+
+terima kasih karena udah bertahan.
+
+dan terima kasih karena masih ada sampai hari ini ❤️`;
+
+let i = 0;
+
 function bukaSurat(){
+
 document.getElementById("surat").style.display="block";
+
+const interval = setInterval(()=>{
+
+if(i < text.length){
+document.getElementById("surat").innerHTML += text.charAt(i);
+i++;
+}else{
+clearInterval(interval);
+document.getElementById("akhir").style.display="block";
 }
 
-const jadian = new Date("2026-05-23");
-const sekarang = new Date();
+},30);
 
-const selisih = Math.floor(
-(sekarang - jadian)/(1000*60*60*24)
-);
+}
 
-document.getElementById("hari").innerHTML =
-"23 mei 2026 • udah berjalan <b>" + selisih + " hari</b> sejak cerita ini dimulai ✨";
+function jawab(){
+
+document.getElementById("pesanAkhir").style.display="block";
+
+for(let i=0;i<60;i++){
+
+setTimeout(()=>{
+
+const h=document.createElement("div");
+
+h.classList.add("heart");
+
+h.innerHTML="❤️";
+
+h.style.left=Math.random()*100+"vw";
+
+h.style.fontSize=(Math.random()*20+15)+"px";
+
+h.style.animationDuration=(Math.random()*3+3)+"s";
+
+document.body.appendChild(h);
+
+setTimeout(()=>h.remove(),7000);
+
+},i*120);
+
+}
+
+}
+
+const startDate = new Date("2026-05-23T00:00:00");
+
+setInterval(()=>{
+
+const now = new Date();
+
+const diff = now - startDate;
+
+const days = Math.floor(diff/(1000*60*60*24));
+const hours = Math.floor((diff/(1000*60*60))%24);
+const minutes = Math.floor((diff/(1000*60))%60);
+
+document.getElementById("counter").innerHTML =
+`✨ 23 mei 2026<br><br>
+sudah berjalan<br>
+<b>${days}</b> hari
+<b>${hours}</b> jam
+<b>${minutes}</b> menit`;
+
+},1000);
+
+for(let i=0;i<120;i++){
+
+const star=document.createElement("div");
+
+star.classList.add("star");
+
+const size=Math.random()*3+1;
+
+star.style.width=size+"px";
+star.style.height=size+"px";
+
+star.style.left=Math.random()*100+"%";
+star.style.top=Math.random()*100+"%";
+
+star.style.animationDelay=Math.random()*3+"s";
+
+document.getElementById("stars").appendChild(star);
+
+}
+
+setInterval(()=>{
+
+const heart=document.createElement("div");
+
+heart.classList.add("heart");
+
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.animationDuration=(Math.random()*3+4)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>heart.remove(),7000);
+
+},1200);
 
 </script>
 
