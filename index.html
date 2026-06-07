@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Untuk Chia ❤️</title>
+
+<style>
+body{
+    margin:0;
+    padding:0;
+    font-family:'Segoe UI',sans-serif;
+    background:linear-gradient(135deg,#ffb6c1,#ffd6e7);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.card{
+    background:white;
+    width:90%;
+    max-width:600px;
+    padding:35px;
+    border-radius:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+}
+
+h1{
+    color:#ff5c8d;
+}
+
+p{
+    line-height:1.8;
+    color:#444;
+}
+
+button{
+    padding:12px 25px;
+    border:none;
+    border-radius:12px;
+    background:#ff5c8d;
+    color:white;
+    cursor:pointer;
+    font-size:16px;
+}
+
+#surat{
+    display:none;
+    margin-top:25px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>untuk chia ❤️</h1>
+
+<p id="hari"></p>
+
+<br>
+
+<button onclick="bukaSurat()">
+buka surat
+</button>
+
+<div id="surat">
+
+<p>
+chia,
+</p>
+
+<p>
+dari semua hal yang pernah datang dan pergi di hidup gua,
+ada satu hal yang selalu bikin gua bersyukur setiap hari,
+dan itu adalah lo
+</p>
+
+<p>
+sejak 23 mei 2026,
+hari-hari yang biasa aja mendadak punya warna,
+malam yang sepi jadi terasa lebih hangat,
+dan senyum sederhana dari lo bisa bikin dunia terasa jauh lebih baik
+</p>
+
+<p>
+lo mungkin ga sadar,
+tapi ada banyak momen di mana nama lo muncul di kepala gua tanpa alasan,
+kayak lagu yang terus terngiang,
+kayak bintang yang selalu ada meski kadang tertutup awan
+</p>
+
+<p>
+gua ga janji bakal jadi orang paling sempurna,
+tapi gua bakal selalu berusaha jadi tempat yang nyaman buat lo pulang,
+jadi orang yang denger cerita lo,
+dan jadi seseorang yang bangga karena bisa jalan di samping lo
+</p>
+
+<p>
+kalau suatu hari nanti lo ngerasa dunia terlalu berat,
+ingat aja bahwa ada satu orang yang selalu nganggep lo berharga,
+dan orang itu adalah gua
+</p>
+
+<p>
+terima kasih karena udah hadir,
+terima kasih karena udah bertahan,
+dan terima kasih karena udah jadi chia yang gua kenal hari ini
+</p>
+
+<p>
+❤️
+</p>
+
+</div>
+
+</div>
+
+<script>
+
+function bukaSurat(){
+document.getElementById("surat").style.display="block";
+}
+
+const jadian = new Date("2026-05-23");
+const sekarang = new Date();
+
+const selisih = Math.floor(
+(sekarang - jadian)/(1000*60*60*24)
+);
+
+document.getElementById("hari").innerHTML =
+"23 mei 2026 • udah berjalan <b>" + selisih + " hari</b> sejak cerita ini dimulai ✨";
+
+</script>
+
+</body>
+</html>
